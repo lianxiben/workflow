@@ -55,7 +55,7 @@ export function clearReports() {
     reportsElement.removeChild(reportsElement.firstChild);
   }
   const img = document.querySelector("#statusImg");
-  img.src = "./public/check/nodata.svg";
+  img.src = "./src/images/nodata.svg";
   img.alt = "No Data";
   img.classList.add('icobeat'); // 跳动。
   
