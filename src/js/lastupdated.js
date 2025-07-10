@@ -28,7 +28,7 @@ export async function lastupdated(useCache = {}) {
   const lastTime = lastTimes.reduce((a, b) => {
     return new Date(a) > new Date(b) ? a : b;
   });
-  console.log(lastTimes);     // 检查提取的时间是否有效
+
   // 更新页面上的时间
   refreshLastupdatedon(lastTime);
 }
