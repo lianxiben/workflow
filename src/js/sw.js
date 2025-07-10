@@ -23,29 +23,21 @@ self.addEventListener('install', function (event) {
         '/src/js/utils.js',
         '/src/js/scrollreveal.min.js',
         '/src/js/startanimation.js',
-        '/public/favicon.ico',
-        '/public/logo.svg',
-        '/public/logo.png',
-        '/public/check/partial.svg',
-        '/public/check/failure.svg',
-        '/public/check/nodata.svg',
-        '/public/check/success.svg',
+        '/src/images/favicon.ico',
+        '/src/images/logo.svg',
+        '/src/images/logo.png',
+        '/src/images/partial.svg',
+        '/src/images/failure.svg',
+        '/src/images/nodata.svg',
+        '/src/images/success.svg',
 
         // 本地日志
         '/logs/Web_report.log',
         '/logs/Dev_report.log',
-        '/logs/Mojocn_report.log',
-        '/logs/Mojoo_report.log',
-        '/logs/ShadowQ_report.log',
-        '/logs/Google_report.log',
+        '/logs/Google_report.log'
 
         // 网络资源
-        'https://raw.github.knloop.com/knloop-service-status/page/logs/Web_report.log',
-        'https://raw.github.knloop.com/knloop-service-status/page/logs/Dev_report.log',
-        'https://raw.github.knloop.com/knloop-service-status/page/logs/Mojocn_report.log',
-        'https://raw.github.knloop.com/knloop-service-status/page/logs/Mojoo_report.log',
-        'https://raw.github.knloop.com/knloop-service-status/page/logs/ShadowQ_report.log',
-        'https://raw.github.knloop.com/knloop-service-status/page/logs/Google_report.log'
+
       ]);
     })
   );
