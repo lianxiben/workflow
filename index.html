@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="keywords" content="Service Status 服务状态监测页面" />
   <meta name="description" content="使用 Github Actions 每10分钟记录一次服务状态日志,并使用 GitHub Pages 进行页面展示。" />
-  <link rel="icon" href="./public/favicon.ico" />
+  <link rel="icon" href="./src/favicon.ico" />
   <link rel="stylesheet" href="./src/index.css" />
   <link rel="manifest" href="/src/knloopsta.webmanifest">
 </head>
@@ -17,7 +17,7 @@
     <div class="headerinner">
       <div class="headerleft">
         <a href="/">
-          <img src="./public/logo.svg" alt="Logo" loading="eager" />
+          <img src="./src/logo.svg" alt="Logo" loading="eager" />
           <span>status</span>
         </a>
       </div>
@@ -29,7 +29,7 @@
 
   <div id="SiteInfo" class="headline">
     <span id="lastDayStatus">
-      <img id="statusImg" class="statusImg icobeat" src="./public/check/nodata.svg" alt="status" loading="eager" />
+      <img id="statusImg" class="statusImg icobeat" src="./src/nodata.svg" alt="status" loading="eager" />
     </span>
     <h1 class="hero-title is-revealing"> service status </h1>
     <p class="lastUpdatedTime is-revealing" id="updateTime">last updated on: Loading...</p>
