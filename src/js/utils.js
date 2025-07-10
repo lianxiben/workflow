@@ -52,7 +52,7 @@ export function constructStatusStream(key, url, uptimeData) {
   const img = document.createElement('img');
   img.className = 'statusIcon';
   img.alt = `status${color}`;
-  img.src = `./public/check/${color}.svg`;
+  img.src = `./src/images/${color}.svg`;
 
   const container = templatize("statusContainerTemplate", {
     title: key,
