@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>status</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="Service Status 服务状态监测页面" />
+  <meta name="description" content="使用 Github Actions 每10分钟记录一次服务状态日志,并使用 GitHub Pages 进行页面展示。" />
+  <link rel="icon" href="./public/favicon.ico" />
+  <link rel="stylesheet" href="./src/index.css" />
+  <link rel="manifest" href="/src/knloopsta.webmanifest">
+</head>
+
+<body class="is-boxed has-animations">
+  <header>
+    <div class="headerinner">
+      <div class="headerleft">
+        <a href="/">
+          <img src="./public/logo.svg" alt="Logo" loading="eager" />
+          <span>status</span>
+        </a>
+      </div>
+      <div class="headerright">
+
+      </div>
+    </div>
+  </header>
+
+  <div id="SiteInfo" class="headline">
+    <span id="lastDayStatus">
+      <img id="statusImg" class="statusImg icobeat" src="./public/check/nodata.svg" alt="status" loading="eager" />
+    </span>
+    <h1 class="hero-title is-revealing"> service status </h1>
+    <p class="lastUpdatedTime is-revealing" id="updateTime">last updated on: Loading...</p>
+  </div>
+
+  <div id="pageContainer" class="pageContainer is-revealing">
+    <div id="reports" class="reportContainer"></div>
+
+    <div id="templates" class="hidden">
+      <div id="statusSquareTemplate" class="statusSquare $color" data-status="$color"></div>
+      <div id="statusLineTemplate" class="statusLine"></div>
+
+      <div id="statusStreamContainerTemplate" class="statusStreamContainer"></div>
+
+      <div id="statusContainerTemplate" class="statusContainer">
+        <div class="statusHeader">
+          <div class="statusHeader-left">
+            <a id="statusTitle" href="$url" target="_blank">
+              <h2 class="statusTitle">$title</h2>
+            </a>
+          </div>
+          <div class="statusUptime">$upTime Uptime within 60 days</div>
+        </div>
+      </div>
+    </div>
+    <div id="loading-mask" class="loading-mask is-revealing">
+      <div class="loadinger is-revealing">
+        <div class="rectangle rectangle1"></div>
+        <div class="rectangle rectangle2"></div>
+        <div class="rectangle rectangle3"></div>
+      </div>
+      <div class="loading-text is-revealing">Data is Loading ...</div>
+    </div>
+
+  </div>
+
+  <div id="clientInfo" class="clientInfo">
+    <p><span id="uag">UA : $uag</span></p>
+  </div>
+
+  <footer>
+    <p class="copy-right">
+      Copyright ©<span id="currentYear"></span> . All Rights Reserved.
+    </p>
+  </footer>
+</body>
+
+<script src="./src/js/scrollreveal.min.js"></script>
+<script src="./src/js/chart.umd.js"></script>
+<script type="module" src="./src/index.js"></script>
+
+</html>
