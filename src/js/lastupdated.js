@@ -20,7 +20,7 @@ export async function lastupdated(useCache = {}) {
   // 获取所有日志文件的内容
   const promises = urllist.map(([key]) => reslogs(key, useCache));
   const responseTexts = await Promise.all(promises);
-
+  
   // 提取每个日志文件的最后一行时间
   const lastTimes = responseTexts.map(extractLastUpdateTime);
 
@@ -28,7 +28,8 @@ export async function lastupdated(useCache = {}) {
   const lastTime = lastTimes.reduce((a, b) => {
     return new Date(a) > new Date(b) ? a : b;
   });
-
+  console.log(responseTexts); // 检查返回的日志内容
+  console.log(lastTimes);     // 检查提取的时间是否有效
   // 更新页面上的时间
   refreshLastupdatedon(lastTime);
 }
