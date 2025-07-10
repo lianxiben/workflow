@@ -54,22 +54,6 @@ const cacheFirst = async ({ request, fallbackUrl }) => {
   if (responseFromCache) {
     return responseFromCache;
   }
-
-  // 如果在缓存中找不到响应，则尝试通过网络获取资源。
-  try {
-    const responseFromNetwork = await fetch(request);
-    putInCache(request, responseFromNetwork.clone());
-    return responseFromNetwork;
-  } catch (error) {
-    const fallbackResponse = await caches.match(fallbackUrl);
-    if (fallbackResponse) {
-      return fallbackResponse;
-    }
-    return new Response("网络错误", {
-      status: 408,
-      headers: { "Content-Type": "text/plain" },
-    });
-  }
 };
 
 self.addEventListener("fetch", (event) => {
