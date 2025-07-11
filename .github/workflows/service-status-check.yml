@@ -39,3 +39,14 @@ jobs:
           git add -A --force ./logs/
           git commit -m '[Automated] Update service status logs'
           git push origin master
+      - name: Trigger GitHub Pages Deploy
+        if: success()
+        uses: actions/github-script@v6
+        with:
+           script: |
+               await github.rest.actions.createWorkflowDispatch({
+                   owner: context.repo.owner,
+                   repo: context.repo.repo,
+                   workflow_id: 'Deploy Status Pages.yml',  # 确保文件名匹配
+                   ref: 'master',
+                   });
