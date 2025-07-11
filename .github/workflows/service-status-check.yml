@@ -47,6 +47,6 @@ jobs:
                await github.rest.actions.createWorkflowDispatch({
                    owner: context.repo.owner,
                    repo: context.repo.repo,
-                   workflow_id: 'Deploy Status Pages.yml',  # 确保文件名匹配
+                   workflow_id: 'deploy-status-pages.yml',  # 确保文件名匹配
                    ref: 'master',
                    });
