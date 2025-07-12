@@ -100,8 +100,8 @@ export async function getLastDayStatus(useCache = {}) {
   const conditions = [
     { condition: successCount === totalCount, src: './src/images/success.svg', alt: 'UP' },
     { condition: nodataCount === totalCount, src: './src/images/nodata.svg', alt: 'No data' },
-    { condition: failureCount >= failureThreshold || nodataCount >= nodateThreshold, src: './public/check/failure.svg', alt: 'Down' },
-    { condition: true, src: './public/check/partial.svg', alt: 'Degraded' }
+    { condition: failureCount >= failureThreshold || nodataCount >= nodateThreshold, src: './src/images/failure.svg', alt: 'Down' },
+    { condition: true, src: './src/images/partial.svg', alt: 'Degraded' }
   ];
 
   const img = document.querySelector("#statusImg");
