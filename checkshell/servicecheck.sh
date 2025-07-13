@@ -35,7 +35,8 @@ for ((index = 0; index < ${#KEYSARRAY[@]}; index++)); do
     for i in 1 2 3; do
       # 检测状态码时加 User-Agent（防403）
       response=$(curl -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" \
-        --write-out '%{http_code}' --silent --output /dev/null --max-time 7 "$url")
+         -H "Cookie: over18=1" \
+         --write-out '%{http_code}' --silent --output /dev/null --max-time 7 "$url")
       echo "检测 [$key] 第 $i 次返回状态码: $response"
       if [[ "$response" =~ ^(200|201|202|301|302|307)$ ]]; then
         result="success"
