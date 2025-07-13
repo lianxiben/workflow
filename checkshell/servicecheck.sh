@@ -31,27 +31,30 @@ for ((index = 0; index < ${#KEYSARRAY[@]}; index++)); do
 
   # 在子shell中执行检测
   (
+    result="failed"
+    http_code="000"
+    connect_time_ms="null"
+
     for i in 1 2 3; do
       response=$(curl --write-out '%{http_code}' --silent --output /dev/null --max-time 7 "$url")
-      if [[ "$response" =~ ^(200|201|202|301|302|307)$ ]]; then
+      http_code="$response"
+      echo "检测 [$key] 第 $i 次返回状态码: $http_code"
+      if [[ "$http_code" =~ ^(200|201|202|301|302|307)$ ]]; then
         result="success"
         break
       fi
-      result="failed"
       sleep 5
     done
 
-    # 成功的url使用ping测试延迟。
     if [[ $result == "success" ]]; then
-      # 通过curl测试连接耗时
       connect_time_seconds=$(curl -o /dev/null -s -w "%{time_connect}\n" "$url")
       connect_time_ms=$(awk '{printf "%.0f\n", ($1 * 1000 + 0.5)}' <<<"$connect_time_seconds")
     fi
 
-    # 日志数据写入log文件
+    # 写入日志文件：只保留时间、结果、连接时间
     dateTime=$(date +'%Y-%m-%d %H:%M')
-    echo "$dateTime, $result, ${connect_time_ms:-null}" >> "./logs/${key}_report.log"
-    # 保留30000条数据
+    echo "$dateTime, $result, $connect_time_ms" >> "./logs/${key}_report.log"
+    # 保留最新30000条日志
     echo "$(tail -30000 ./logs/${key}_report.log)" > "./logs/${key}_report.log"
   ) &
   pids+=($!)
