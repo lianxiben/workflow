@@ -39,7 +39,7 @@ for ((index = 0; index < ${#KEYSARRAY[@]}; index++)); do
       response=$(curl --write-out '%{http_code}' --silent --output /dev/null --max-time 7 "$url")
       http_code="$response"
       echo "检测 [$key] 第 $i 次返回状态码: $http_code"
-      if [[ "$http_code" =~ ^(200|201|202|301|302|307)$ ]]; then
+      if [[ "$http_code" =~ ^(200|201|202|301|302|307|403)$ ]]; then
         result="success"
         break
       fi
