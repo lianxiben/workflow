@@ -38,7 +38,7 @@ for ((index = 0; index < ${#KEYSARRAY[@]}; index++)); do
          -H "Cookie: over18=1" \
          --write-out '%{http_code}' --silent --output /dev/null --max-time 7 "$url")
       echo "检测 [$key] 第 $i 次返回状态码: $response"
-      if [[ "$response" =~ ^(200|201|202|301|302|307)$ ]]; then
+      if [[ "$response" =~ ^(200|201|202|301|302|307|403)$ ]]; then
         result="success"
         break
       fi
