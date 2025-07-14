@@ -29,8 +29,8 @@ jobs:
       - name: Run Shell Script
         id: shell_script_run
         run: |
-          chmod +x ./checkshell/servicecheck.sh
-          bash ./checkshell/servicecheck.sh
+          chmod +x ./shell/servicecheck.sh
+          bash ./shell/servicecheck.sh
 
       - name: Commit and push changes
         run: |
