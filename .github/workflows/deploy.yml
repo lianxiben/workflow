@@ -2,7 +2,7 @@ name: Service Status Check and Deploy
 
 on:
   schedule:
-    - cron: "10,30,50 * * * *"
+    - cron: "15,45 * * * *"
   workflow_dispatch:
 
 permissions:
