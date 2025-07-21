@@ -24,7 +24,7 @@ async function main() {
     initScrollReveal(),
     getclieninfo(),
     getyear(),
-    lastupdated(),
+    //lastupdated(),
     manualreload(),
   ]);
   await Promise.all([
